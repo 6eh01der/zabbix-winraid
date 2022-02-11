@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>5.0</version>
+    <date>2022-02-04T06:26:39Z</date>
+    <groups>
+        <group>
+            <name>Templates/Operating systems</name>
+        </group>
+        <group>
+            <name>Templates/Server hardware</name>
+        </group>
+    </groups>
+    <templates>
+        <template>
+            <template>Template OS Windows RAID</template>
+            <name>Template OS Windows RAID</name>
+            <groups>
+                <group>
+                    <name>Templates/Operating systems</name>
+                </group>
+                <group>
+                    <name>Templates/Server hardware</name>
+                </group>
+            </groups>
+            <applications>
+                <application>
+                    <name>Windows RAID</name>
+                </application>
+            </applications>
+            <items>
+                <item>
+                    <name>Windows RAID Status</name>
+                    <key>raid_status</key>
+                    <applications>
+                        <application>
+                            <name>Windows RAID</name>
+                        </application>
+                    </applications>
+                    <triggers>
+                        <trigger>
+                            <expression>{last()}=2</expression>
+                            <name>Windows RAID at risk {HOST.NAME}</name>
+                            <priority>AVERAGE</priority>
+                            <description>Windows RAID at risk</description>
+                        </trigger>
+                        <trigger>
+                            <expression>{last()}=3</expression>
+                            <name>Windows RAID failed {HOST.NAME}</name>
+                            <priority>HIGH</priority>
+                            <description>Windows RAID failed</description>
+                        </trigger>
+                        <trigger>
+                            <expression>{last()}=1</expression>
+                            <name>Windows RAID is rebuilding {HOST.NAME}</name>
+                            <priority>WARNING</priority>
+                            <description>Windows RAID is rebuilding</description>
+                        </trigger>
+                    </triggers>
+                </item>
+            </items>
+        </template>
+    </templates>
+</zabbix_export>
