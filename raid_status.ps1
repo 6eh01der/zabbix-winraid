@@ -4,7 +4,6 @@ $VdsServiceLoader = New-Object Microsoft.Storage.Vds.ServiceLoader
 $VdsService = $VdsServiceLoader.LoadService($null) 
 $VdsService.WaitForServiceReady() 
 
-# Получим коллекцию томов присутствующих в системе
 $volumes = $VdsService.Providers  | foreach {$_.packs} | foreach {$_.volumes}
 
 $vol=@()
