@@ -31,6 +31,7 @@
                 <item>
                     <name>Windows RAID Status</name>
                     <key>raid_status</key>
+                    <delay>5m</delay>
                     <applications>
                         <application>
                             <name>Windows RAID</name>
